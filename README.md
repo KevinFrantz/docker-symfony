@@ -1,10 +1,10 @@
-# Docker Symfony (PHP7-FPM - NGINX - MySQL - ELK)
+# Docker Symfony 4^ (PHP7^-FPM - NGINX - MySQL - ELK)
 
 [![Build Status](https://travis-ci.org/maxpou/docker-symfony.svg?branch=master)](https://travis-ci.org/maxpou/docker-symfony)
 
 ![](doc/schema.png)
 
-Docker-symfony gives you everything you need for developing Symfony application. This complete stack run with docker and [docker-compose (1.7 or higher)](https://docs.docker.com/compose/).
+Docker-symfony gives you everything you need for developing Symfony application. This complete stack run with docker and [docker-compose (1.7 or higher)](https://docs.docker.com/compose/). This Version is not backwards compatible to older Symfony versions. It containes the state of the art environment for symfony applications. 
 
 ## Installation
 
@@ -97,7 +97,6 @@ $ docker-compose exec php bash
 $ docker-compose exec php composer update
 
 # SF commands (Tips: there is an alias inside php container)
-$ docker-compose exec php php /var/www/symfony/app/console cache:clear # Symfony2
 $ docker-compose exec php php /var/www/symfony/bin/console cache:clear # Symfony3
 # Same command by using alias
 $ docker-compose exec php bash
@@ -111,7 +110,6 @@ $ docker inspect $(docker ps -f name=nginx -q) | grep IPAddress
 $ docker-compose exec db mysql -uroot -p"root"
 
 # F***ing cache/logs folder
-$ sudo chmod -R 777 app/cache app/logs # Symfony2
 $ sudo chmod -R 777 var/cache var/logs var/sessions # Symfony3
 
 # Check CPU consumption
