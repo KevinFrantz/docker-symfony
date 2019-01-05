@@ -36,3 +36,15 @@ services:
         volumes_from:
             - php
             - nginx
+    node:
+        image: "node:8"
+        user: "node"
+        working_dir: /home/node/app
+        environment:
+          - NODE_ENV=production
+        volumes:
+          - ${NODE_APP_PATH}:/home/node/app
+          - ./logs/node:/home/node/.npm/_logs/
+        expose:
+          - "82"
+        command: "npm start"
