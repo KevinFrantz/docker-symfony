@@ -36,6 +36,7 @@ services:
         volumes_from:
             - php
             - nginx
+            - node
     node:
         image: "node:8"
         user: "node"
@@ -45,6 +46,6 @@ services:
         volumes:
           - ${NODE_APP_PATH}:/home/node/app
           - ./logs/node:/home/node/.npm/_logs/
-        expose:
-          - "82"
+        ports:
+           - 82:8080
         command: "npm start"
